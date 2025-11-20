@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Form from "./pages/Form";
-import Pending from "./pages/Pending";
-import Completed from "./pages/Completed";
-import Cancelled from "./pages/Cancelled";
-import Graph from "./pages/Graph";
+import Login from "./userpages/Login";
+import Register from "./userpages/Register";
+import Form from "./userpages/Form";
+import Pending from "./userpages/Pending";
+import Completed from "./userpages/Completed";
+import Cancelled from "./userpages/Cancelled";
+import Graph from "./userpages/Graph";
 
 function App() {
   const router = createBrowserRouter([
