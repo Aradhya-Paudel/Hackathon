@@ -5,7 +5,6 @@ import Form from "./userpages/Form";
 import Pending from "./userpages/Pending";
 import Completed from "./userpages/Completed";
 import Cancelled from "./userpages/Cancelled";
-import Graph from "./userpages/Graph";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,10 +31,6 @@ function App() {
     {
       path: "/cancelled",
       element: <Cancelled />,
-    },
-    {
-      path: "/graph",
-      element: <Graph />,
     },
   ]);
 

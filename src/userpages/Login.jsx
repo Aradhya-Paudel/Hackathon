@@ -32,11 +32,11 @@ function Login() {
         console.log("Login successful:", response.data);
         const { user } = response.data;
 
-        // Navigate based on user type
-        if (user.user_status === "Admin") {
-          navigate("/graph");
+        // Check if user is admin by checking for secretkey
+        if (user.secretkey === "k") {
+          navigate("/pending"); // Admin goes to pending (or wherever admins should go)
         } else {
-          navigate("/form");
+          navigate("/form"); // Regular users go to form
         }
       })
       .catch((error) => {

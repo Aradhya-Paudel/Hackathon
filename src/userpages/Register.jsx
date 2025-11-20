@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [phnumber, setPhnumber] = useState("");
   const [password, setPassword] = useState("");
-  const [userStatus, setUserStatus] = useState("User");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -17,7 +16,6 @@ function Register() {
       .post("http://localhost:8000/register", {
         phone_number: phnumber,
         password: password,
-        user_status: userStatus,
       })
       .then((response) => {
         console.log("Registration successful:", response.data);
