@@ -7,69 +7,37 @@ import Completed from "./pages/Completed";
 import Cancelled from "./pages/Cancelled";
 import Graph from "./pages/Graph";
 
-const router = createBrowserRouter([
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/form",
-    element: <Form />,
-  },
-  {
-    path: "/pending",
-    element: <Pending />,
-  },
-  {
-    path: "/completed",
-    element: <Completed />,
-  },
-  {
-    path: "/cancelled",
-    element: <Cancelled />,
-  },
-  {
-    path: "/graph",
-    element: <Graph />,
-  },
-]);
-
 function App() {
   const router = createBrowserRouter([
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/form",
-    element: <Form />,
-  },
-  {
-    path: "/pending",
-    element: <Pending />,
-  },
-  {
-    path: "/completed",
-    element: <Completed />,
-  },
-  {
-    path: "/cancelled",
-    element: <Cancelled />,
-  },
-  {
-    path: "/graph",
-    element: <Graph />,
-  },
-]);
-
+    {
+      path: "/",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/form",
+      element: <Form />,
+    },
+    {
+      path: "/pending",
+      element: <Pending />,
+    },
+    {
+      path: "/completed",
+      element: <Completed />,
+    },
+    {
+      path: "/cancelled",
+      element: <Cancelled />,
+    },
+    {
+      path: "/graph",
+      element: <Graph />,
+    },
+  ]);
 
   return <RouterProvider router={router} />;
 }
