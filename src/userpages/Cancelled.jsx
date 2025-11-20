@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Cancelled() {
   const navigate = useNavigate();
+
+  // Mock data - replace with actual API call
+  const [cancelledForms] = useState([]);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -45,7 +49,82 @@ function Cancelled() {
 
       {/* Page Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-800">Cancelled Page</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          Cancelled Applications
+        </h1>
+
+        {/* Forms Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cancelledForms.map((form) => (
+            <div
+              key={form.id}
+              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
+            >
+              {/* Document Type Title */}
+              <h2 className="text-xl font-bold text-gray-800 mb-3">
+                {form.documentType}
+              </h2>
+
+              {/* Dates Info */}
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <p className="text-sm text-gray-600">Submitted</p>
+                <p className="font-medium text-gray-800">
+                  {form.submittedDate}
+                </p>
+                <p className="text-sm text-red-600 font-medium mt-2">
+                  Cancelled: {form.cancelledDate}
+                </p>
+              </div>
+
+              {/* Cancellation Info */}
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <p className="text-sm text-gray-600">Cancelled By</p>
+                <p className="font-medium text-red-600">{form.cancelledBy}</p>
+                <p className="text-sm text-gray-700 mt-2">
+                  <span className="font-semibold">Reason:</span> {form.reason}
+                </p>
+              </div>
+
+              {/* Status Area - Last Approvers */}
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-gray-700 mb-3">
+                  Approval History
+                </p>
+                <div className="space-y-2">
+                  {form.lastApprovers.map((approver, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
+                      <span className="text-sm text-gray-700">
+                        {approver.name}
+                      </span>
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1 ${
+                          approver.status === "approved"
+                            ? "bg-green-500 text-white"
+                            : "bg-red-500 text-white"
+                        }`}
+                      >
+                        <span>
+                          {approver.status === "approved" ? "✓" : "✗"}
+                        </span>
+                        <span className="capitalize">{approver.status}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {cancelledForms.length === 0 && (
+          <div className="bg-white rounded-lg shadow-md p-12 text-center">
+            <p className="text-gray-500 text-lg">No cancelled applications</p>
+          </div>
+        )}
       </div>
     </div>
   );

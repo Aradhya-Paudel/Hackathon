@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Completed() {
   const navigate = useNavigate();
+
+  // Mock data - replace with actual API call
+  const [approvedForms] = useState([]);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -45,7 +49,77 @@ function Completed() {
 
       {/* Page Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-800">Completed Page</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          Approved Applications
+        </h1>
+
+        {/* Forms Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {approvedForms.map((form) => (
+            <div
+              key={form.id}
+              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
+            >
+              {/* Document Type Title */}
+              <h2 className="text-xl font-bold text-gray-800 mb-3">
+                {form.documentType}
+              </h2>
+
+              {/* Dates Info */}
+              <div className="mb-4 pb-4 border-b border-gray-200">
+                <p className="text-sm text-gray-600">Submitted</p>
+                <p className="font-medium text-gray-800">
+                  {form.submittedDate}
+                </p>
+                <p className="text-sm text-green-600 font-medium mt-2">
+                  Approved: {form.approvedDate}
+                </p>
+              </div>
+
+              {/* Status Area - Approvers */}
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-gray-700 mb-3">
+                  Approval Timeline
+                </p>
+                <div className="space-y-2">
+                  {form.approvers.map((approver, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
+                      <span className="text-sm text-gray-700">
+                        {approver.name}
+                      </span>
+                      <div className="flex flex-col items-end">
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-green-500 text-white flex items-center gap-1">
+                          <span>✓</span>
+                          <span>Approved</span>
+                        </span>
+                        <span className="text-xs text-gray-500 mt-1">
+                          {approver.date}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Download Button */}
+              <div className="pt-4 border-t border-gray-200">
+                <button className="w-full px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition">
+                  Download Document
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {approvedForms.length === 0 && (
+          <div className="bg-white rounded-lg shadow-md p-12 text-center">
+            <p className="text-gray-500 text-lg">No approved applications</p>
+          </div>
+        )}
       </div>
     </div>
   );
