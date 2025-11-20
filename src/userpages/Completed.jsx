@@ -3,9 +3,32 @@ import { useState } from "react";
 
 function Completed() {
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
   // Mock data - replace with actual API call
-  const [approvedForms] = useState([]);
+  const [approvedForms] = useState([
+    {
+      id: 1,
+      documentType: "Marriage Certificate",
+      submittedDate: "2025-11-01",
+      approvedDate: "2025-11-14",
+      approvers: [
+        { name: "Ward Officer", status: "approved", date: "2025-11-05" },
+        { name: "Mayor", status: "approved", date: "2025-11-10" },
+        { name: "CDO", status: "approved", date: "2025-11-14" },
+      ],
+    },
+    {
+      id: 2,
+      documentType: "Death Certificate",
+      submittedDate: "2025-11-12",
+      approvedDate: "2025-11-19",
+      approvers: [
+        { name: "Ward Officer", status: "approved", date: "2025-11-15" },
+        { name: "Mayor", status: "approved", date: "2025-11-19" },
+      ],
+    },
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -52,6 +75,13 @@ function Completed() {
         <h1 className="text-3xl font-bold text-gray-800 mb-6">
           Approved Applications
         </h1>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+            {error}
+          </div>
+        )}
 
         {/* Forms Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

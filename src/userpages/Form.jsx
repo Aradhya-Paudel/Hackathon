@@ -1058,7 +1058,6 @@ function Form() {
               </>
             )}
 
-            {/* Land Registration Certificate Form */}
             {documentType === "Land Registration Certificate" && (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -5,7 +5,34 @@ function Cancelled() {
   const navigate = useNavigate();
 
   // Mock data - replace with actual API call
-  const [cancelledForms] = useState([]);
+  const [cancelledForms] = useState([
+    {
+      id: 1,
+      documentType: "Divorce Certificate",
+      submittedDate: "2025-10-30",
+      cancelledDate: "2025-11-10",
+      cancelledBy: "Court",
+      reason: "Court order pending",
+      lastApprovers: [
+        { name: "Ward Officer", status: "approved" },
+        { name: "Mayor", status: "approved" },
+        { name: "Court", status: "rejected" },
+      ],
+    },
+    {
+      id: 2,
+      documentType: "Land Registration Certificate",
+      submittedDate: "2025-11-02",
+      cancelledDate: "2025-11-14",
+      cancelledBy: "Land Revenue Office",
+      reason: "Property ownership dispute",
+      lastApprovers: [
+        { name: "Ward Officer", status: "approved" },
+        { name: "Mayor", status: "approved" },
+        { name: "Land Revenue Office", status: "rejected" },
+      ],
+    },
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-100">

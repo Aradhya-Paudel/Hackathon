@@ -5,7 +5,29 @@ function Pending() {
   const navigate = useNavigate();
 
   // Mock data - replace with actual API call
-  const [pendingForms] = useState([]);
+  const [pendingForms] = useState([
+    {
+      id: 1,
+      documentType: "Citizenship Certificate",
+      submittedDate: "2025-11-20",
+      approvers: [
+        { name: "Ward Officer", status: "approved" },
+        { name: "Mayor", status: "reviewing" },
+        { name: "CDO", status: "pending" },
+      ],
+      estimatedTime: "5 days",
+    },
+    {
+      id: 2,
+      documentType: "Birth Certificate",
+      submittedDate: "2025-11-21",
+      approvers: [
+        { name: "Ward Officer", status: "reviewing" },
+        { name: "Mayor", status: "pending" },
+      ],
+      estimatedTime: "3-5 days",
+    },
+  ]);
 
   const getStatusColor = (status) => {
     switch (status) {
