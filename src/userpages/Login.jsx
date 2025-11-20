@@ -34,7 +34,7 @@ function Login() {
 
         // Check if user is admin by checking for secretkey
         if (user.secretkey === "k") {
-          navigate("/pending"); // Admin goes to pending (or wherever admins should go)
+          navigate("/admin/pending"); // Admin goes to pending (or wherever admins should go)
         } else {
           navigate("/form"); // Regular users go to form
         }

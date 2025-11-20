@@ -5,6 +5,10 @@ import Form from "./userpages/Form";
 import Pending from "./userpages/Pending";
 import Completed from "./userpages/Completed";
 import Cancelled from "./userpages/Cancelled";
+import Approved from "./adminpages/approved";
+import CancelledApp from "./adminpages/CancelledApp";
+import PedningApp from "./adminpages/pendingApp";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +36,18 @@ function App() {
       path: "/cancelled",
       element: <Cancelled />,
     },
+    {
+      path: "/admin/approved",
+      element: <Approved />,
+    },
+    {
+      path: "/admin/cancelled",
+      element: <CancelledApp />,
+    },
+    {
+      path: "/admin/pending",
+      element: <PedningApp />,
+    }
   ]);
 
   return <RouterProvider router={router} />;
