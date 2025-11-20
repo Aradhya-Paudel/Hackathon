@@ -36,7 +36,7 @@ function Login() {
         if (user.secretkey === "k") {
           navigate("/admin/pending"); // Admin goes to pending (or wherever admins should go)
         } else {
-          navigate("/form"); // Regular users go to form
+          navigate("/pending"); // Regular users go to form
         }
       })
       .catch((error) => {
