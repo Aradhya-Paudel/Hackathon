@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -19,3 +20,6 @@ If you are developing a production application, we recommend using TypeScript wi
 # Frontend-hackathon
 This is the frontend part of codefest 2025 that is being hosted in Pokhara
 >>>>>>> 457e8b78efcc3d6b23c3906e74589b535484ccc9
+=======
+# Frontend-hackathon
+>>>>>>> 39b8efe05a2b6ced77507fdef6386ebf4d0ceaef
