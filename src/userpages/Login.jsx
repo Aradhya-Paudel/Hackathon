@@ -13,36 +13,40 @@ function Login() {
   useEffect(() => {
     if (location.state?.message) {
       setSuccessMessage(location.state.message);
+      // Clear the location state immediately to prevent showing on refresh
+      window.history.replaceState({}, document.title);
       // Clear the message after 5 seconds
       const timer = setTimeout(() => setSuccessMessage(""), 5000);
       return () => clearTimeout(timer);
     }
   }, [location]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
-    axios
-      .post("http://localhost:8000/login", {
+    try {
+      const response = await axios.post("http://localhost:8000/login", {
         phone_number: phnumber,
         password: password,
-      })
-      .then((response) => {
-        console.log("Login successful:", response.data);
-        const { user } = response.data;
-
-        // Check if user is admin by checking for secretkey
-        if (user.secretkey === "k") {
-          navigate("/admin/pending"); // Admin goes to pending (or wherever admins should go)
-        } else {
-          navigate("/pending"); // Regular users go to form
-        }
-      })
-      .catch((error) => {
-        console.error("Login error:", error);
-        setError(error.response?.data?.detail || "Login failed");
       });
+
+      console.log("Login successful:", response.data);
+      const { user } = response.data;
+
+      // Store phone number in localStorage
+      localStorage.setItem("phone_number", user.phone_number || phnumber);
+
+      // Check if user is admin by checking for secretkey
+      if (user.secretkey === "k") {
+        navigate("/admin/pending");
+      } else {
+        navigate("/pending");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setError(error.response?.data?.detail || "Login failed");
+    }
   };
 
   return (

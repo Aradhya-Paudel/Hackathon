@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const [username, setUsername] = useState("");
   const [phnumber, setPhnumber] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -14,6 +15,7 @@ function Register() {
 
     axios
       .post("http://localhost:8000/register", {
+        username: username,
         phone_number: phnumber,
         password: password,
       })
@@ -47,6 +49,24 @@ function Register() {
         {}
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+
           <div>
             <label
               htmlFor="phnumber"

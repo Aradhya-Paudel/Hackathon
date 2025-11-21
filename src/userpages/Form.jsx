@@ -6,6 +6,7 @@ function Form() {
   const [documentType, setDocumentType] = useState("Citizenship Certificate");
   const [formData, setFormData] = useState({});
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,18 +21,52 @@ function Form() {
     setFormData({}); // Reset form data when document type changes
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setIsSubmitting(true);
 
-    // Here you would submit to your backend
-    const submissionData = {
-      documentType,
-      ...formData,
-      submittedDate: new Date().toISOString().split("T")[0],
-    };
-    console.log("Form submitted:", submissionData);
-    navigate("/pending");
+    try {
+      const phoneNumber = localStorage.getItem("phone_number");
+      if (!phoneNumber) {
+        setError("Phone number not found. Please login again.");
+        return;
+      }
+
+      const payload = {
+        phone_number: phoneNumber,
+        form_type: documentType,
+        enter_date_and_time: new Date().toISOString(),
+        form_data: formData,
+      };
+
+      const response = await fetch(
+        "http://localhost:8000/dashboard/user/form",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        const data = await response.json();
+        const errorMessage =
+          typeof data.detail === "string"
+            ? data.detail
+            : JSON.stringify(data.detail) || "Failed to submit form";
+        throw new Error(errorMessage);
+      }
+
+      navigate("/pending");
+    } catch (err) {
+      const errorMessage =
+        err.message || "Failed to submit form. Please try again.";
+      console.error("Form submission error:", err);
+      setError(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -1259,9 +1294,16 @@ function Form() {
             <div className="border-t pt-6">
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-200 font-medium text-lg"
+                disabled={isSubmitting}
+                className={`w-full py-3 rounded-lg transition duration-200 font-medium text-lg ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed text-white"
+                    : "bg-blue-600 text-white hover:bg-blue-700"
+                }`}
               >
-                Submit Application / आवेदन पेश गर्नुहोस्
+                {isSubmitting
+                  ? "Submitting... / पेश गरिदै छ..."
+                  : "Submit Application / आवेदन पेश गर्नुहोस्"}
               </button>
             </div>
           </form>

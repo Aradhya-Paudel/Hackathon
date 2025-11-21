@@ -8,7 +8,7 @@ import Cancelled from "./userpages/Cancelled";
 import Approved from "./adminpages/approved";
 import CancelledApp from "./adminpages/CancelledApp";
 import PedningApp from "./adminpages/pendingApp";
-
+import Graph from "./adminpages/Graph";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,7 +47,11 @@ function App() {
     {
       path: "/admin/pending",
       element: <PedningApp />,
-    }
+    },
+    {
+      path: "/admin/Graph",
+      element: <Graph />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
