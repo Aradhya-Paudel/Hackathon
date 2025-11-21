@@ -1,0 +1,67 @@
+{
+  "2321b201-1beb-430a-a8a1-2873f4e8616b": {
+    "id": "2321b201-1beb-430a-a8a1-2873f4e8616b",
+    "sender_id": "monitor-pokhara-metro",
+    "sender_office": "Pokhara Metropolitan Monitor",
+    "sender_name": "Pokhara Metropolitan Monitor",
+    "recipient_id": "off-ward-12",
+    "recipient_office": "Ward 12 - Pokhara Ward Office",
+    "subject": "good job",
+    "content": "good shit",
+    "priority": "low",
+    "created_at": "2025-11-21T08:08:59.837645",
+    "read": true
+  },
+  "4f04a4f0-ebd1-4726-b100-d76ef7e4494b": {
+    "id": "4f04a4f0-ebd1-4726-b100-d76ef7e4494b",
+    "sender_id": "monitor-pokhara-metro",
+    "sender_office": "Pokhara Metropolitan Monitor",
+    "sender_name": "Pokhara Metropolitan Monitor",
+    "recipient_id": "off-ward-12",
+    "recipient_office": "Ward 12 - Pokhara Ward Office",
+    "subject": "goo dhist",
+    "content": "keep it up",
+    "priority": "low",
+    "created_at": "2025-11-21T08:22:00.200034",
+    "read": true
+  },
+  "c164bef5-2c78-4d2d-a135-adc1f158a355": {
+    "id": "c164bef5-2c78-4d2d-a135-adc1f158a355",
+    "sender_id": "monitor-pokhara-metro",
+    "sender_office": "Pokhara Metropolitan Monitor",
+    "sender_name": "Pokhara Metropolitan Monitor",
+    "recipient_id": "off-ward-11",
+    "recipient_office": "Ward 11 - Pokhara Ward Office",
+    "subject": "XITO GAR",
+    "content": "FAST ",
+    "priority": "urgent",
+    "created_at": "2025-11-21T08:55:25.568668",
+    "read": true
+  },
+  "a647bb05-fc1c-43bd-998b-581f2e70f4ed": {
+    "id": "a647bb05-fc1c-43bd-998b-581f2e70f4ed",
+    "sender_id": "monitor-pokhara-metro",
+    "sender_office": "Pokhara Metropolitan Monitor",
+    "sender_name": "Pokhara Metropolitan Monitor",
+    "recipient_id": "off-ward-13",
+    "recipient_office": "Ward 13 - Pokhara Ward Office",
+    "subject": "oe gay",
+    "content": "talai chakka mula k garis",
+    "priority": "high",
+    "created_at": "2025-11-21T09:27:35.751982",
+    "read": true
+  },
+  "31300135-a212-45a1-a560-0d73a65691cc": {
+    "id": "31300135-a212-45a1-a560-0d73a65691cc",
+    "sender_id": "monitor-pokhara-metro",
+    "sender_office": "Pokhara Metropolitan Monitor",
+    "sender_name": "Pokhara Metropolitan Monitor",
+    "recipient_id": "off-ward-13",
+    "recipient_office": "Ward 13 - Pokhara Ward Office",
+    "subject": "xito gar",
+    "content": "xito gar",
+    "priority": "low",
+    "created_at": "2025-11-21T09:35:43.259240",
+    "read": true
+  }
+}
