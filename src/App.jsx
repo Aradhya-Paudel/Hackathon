@@ -7,8 +7,9 @@ import Completed from "./userpages/Completed";
 import Cancelled from "./userpages/Cancelled";
 import Approved from "./adminpages/approved";
 import CancelledApp from "./adminpages/CancelledApp";
-import PedningApp from "./adminpages/pendingApp";
+import PendingApp from "./adminpages/pendingApp";
 import Graph from "./adminpages/Graph";
+import Details from "./adminpages/Details";
 
 function App() {
   const router = createBrowserRouter([
@@ -46,11 +47,15 @@ function App() {
     },
     {
       path: "/admin/pending",
-      element: <PedningApp />,
+      element: <PendingApp />,
     },
     {
       path: "/admin/Graph",
       element: <Graph />,
+    },
+    {
+      path: "/admin/details",
+      element: <Details />,
     },
   ]);
 

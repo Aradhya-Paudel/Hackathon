@@ -14,6 +14,24 @@ function CancelledApp() {
       userName: "John Doe",
       phoneNumber: "9841234567",
       reason: "Incomplete documentation",
+      status: "cancelled",
+      formData: {
+        citizenshipType: "Descent",
+        fullName: "John Doe",
+        dateOfBirth: "1990-05-10",
+        gender: "Male",
+        fatherName: "Robert Doe",
+        motherName: "Mary Doe",
+        grandfatherName: "William Doe",
+        permanentProvince: "Bagmati",
+        permanentDistrict: "Kathmandu",
+        permanentMunicipality: "Kathmandu Metropolitan",
+        permanentWard: "10",
+        temporaryProvince: "Bagmati",
+        temporaryDistrict: "Kathmandu",
+        temporaryMunicipality: "Kathmandu Metropolitan",
+        temporaryWard: "10",
+      },
     },
     {
       id: 2,
@@ -23,12 +41,31 @@ function CancelledApp() {
       userName: "Ram Sharma",
       phoneNumber: "9812345678",
       reason: "Invalid information provided",
+      status: "cancelled",
+      formData: {
+        groomName: "Ram Sharma",
+        groomDateOfBirth: "1988-03-15",
+        groomCitizenship: "33333-2008-03-15",
+        brideName: "Sita Sharma",
+        brideDateOfBirth: "1992-07-20",
+        brideCitizenship: "44444-2012-07-20",
+        marriageDate: "2025-10-15",
+        marriagePlace: "Kathmandu",
+        witnessName1: "Hari Sharma",
+        witnessName2: "Gita Sharma",
+        marriageProvince: "Bagmati",
+        marriageDistrict: "Kathmandu",
+        marriageMunicipality: "Kathmandu Metropolitan",
+        marriageWard: "12",
+      },
     },
   ]);
 
   const handleView = (id) => {
-    console.log("Viewing application:", id);
-    // Navigate to detailed view
+    const form = cancelledForms.find((f) => f.id === id);
+    navigate("/admin/details", {
+      state: { form, returnPath: "/admin/cancelled" },
+    });
   };
 
   return (
@@ -61,7 +98,7 @@ function CancelledApp() {
                 Cancelled
               </button>
               <button
-                onClick={() => navigate("./admin/Graph")}
+                onClick={() => navigate("/admin/Graph")}
                 className="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-200 transition"
               >
                 Graph

@@ -51,8 +51,8 @@ function Graph() {
                 Cancelled
               </button>
               <button
-                onClick={() => navigate("./admin/Graph")}
-                className="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-200 transition"
+                onClick={() => navigate("/admin/Graph")}
+                className="px-4 py-2 rounded-lg font-medium bg-blue-600 text-white"
               >
                 Graph
               </button>

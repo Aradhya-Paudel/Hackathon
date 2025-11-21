@@ -13,6 +13,24 @@ function Approved() {
       approvedDate: "2025-11-20",
       userName: "John Doe",
       phoneNumber: "9841234567",
+      status: "approved",
+      formData: {
+        citizenshipType: "Descent",
+        fullName: "John Doe",
+        dateOfBirth: "1990-05-10",
+        gender: "Male",
+        fatherName: "Robert Doe",
+        motherName: "Mary Doe",
+        grandfatherName: "William Doe",
+        permanentProvince: "Bagmati",
+        permanentDistrict: "Kathmandu",
+        permanentMunicipality: "Kathmandu Metropolitan",
+        permanentWard: "10",
+        temporaryProvince: "Bagmati",
+        temporaryDistrict: "Kathmandu",
+        temporaryMunicipality: "Kathmandu Metropolitan",
+        temporaryWard: "10",
+      },
     },
     {
       id: 2,
@@ -21,12 +39,29 @@ function Approved() {
       approvedDate: "2025-11-21",
       userName: "Jane Smith",
       phoneNumber: "9847654321",
+      status: "approved",
+      formData: {
+        childName: "Baby Smith",
+        dateOfBirth: "2025-11-01",
+        gender: "Female",
+        birthPlace: "Bir Hospital, Kathmandu",
+        fatherName: "John Smith",
+        motherName: "Jane Smith",
+        fatherCitizenship: "11111-2015-01-01",
+        motherCitizenship: "22222-2016-02-02",
+        birthProvince: "Bagmati",
+        birthDistrict: "Kathmandu",
+        birthMunicipality: "Kathmandu Metropolitan",
+        birthWard: "15",
+      },
     },
   ]);
 
   const handleView = (id) => {
-    console.log("Viewing application:", id);
-    // Navigate to detailed view
+    const form = approvedForms.find((f) => f.id === id);
+    navigate("/admin/details", {
+      state: { form, returnPath: "/admin/approved" },
+    });
   };
 
   return (
@@ -59,7 +94,7 @@ function Approved() {
                 Cancelled
               </button>
               <button
-                onClick={() => navigate("./admin/Graph")}
+                onClick={() => navigate("/admin/Graph")}
                 className="px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-200 transition"
               >
                 Graph
