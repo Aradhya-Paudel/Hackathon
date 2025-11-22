@@ -77,6 +77,18 @@ const HierarchyDashboard = () => {
     }
   }
 
+<<<<<<< HEAD
+=======
+  const markMessageAsRead = async (messageId) => {
+    try {
+      await officeAPI.markMessageRead(messageId)
+      loadMessages() // Reload messages
+    } catch (err) {
+      console.error('Failed to mark message as read:', err)
+    }
+  }
+
+>>>>>>> f876da6 (nischal commited)
   const loadOfficials = async () => {
     try {
       const officialsList = await officeAPI.getAllOfficials()
@@ -118,6 +130,7 @@ const HierarchyDashboard = () => {
     console.log('Opening message modal for office:', office)
     console.log('Available officials:', officials)
     
+<<<<<<< HEAD
     setSelectedOffice(office)
     
     // Find the official from this office (not a monitor account)
@@ -133,11 +146,96 @@ const HierarchyDashboard = () => {
              o.office_level === office.office_level &&
              !o.is_monitor
     })
+=======
+    const isNationalMonitor = user?.office_name === "National Monitor"
+    const isGandakiMonitor = user?.office_name === "Gandaki Province Monitor"
+    const isKaskiMonitor = user?.office_name === "Kaski District Monitor"
+    
+    // For National Monitor, only Gandaki can be messaged
+    if (isNationalMonitor && office.office_name !== "Gandaki") {
+      const errorMsg = `Messaging is only available for Gandaki Province. Other provinces (${office.office_name}) are display-only for scalability demonstration.`
+      console.error(errorMsg)
+      setError(errorMsg)
+      alert(errorMsg)
+      return
+    }
+    
+    // For Gandaki Province Monitor, only Kaski can be messaged
+    if (isGandakiMonitor && office.office_name !== "Kaski") {
+      const errorMsg = `Messaging is only available for Kaski District. Other districts (${office.office_name}) are display-only for scalability demonstration.`
+      console.error(errorMsg)
+      setError(errorMsg)
+      alert(errorMsg)
+      return
+    }
+    
+    // For Kaski District Monitor, only Pokhara has real officials
+    if (isKaskiMonitor && office.office_name !== "Pokhara") {
+      const errorMsg = `Messaging is only available for Pokhara. Other municipalities (${office.office_name}) are display-only for scalability demonstration.`
+      console.error(errorMsg)
+      setError(errorMsg)
+      alert(errorMsg)
+      return
+    }
+    
+    setSelectedOffice(office)
+    
+    let official
+    
+    // For Gandaki in National monitor, find the Gandaki Province Monitor
+    if (isNationalMonitor && office.office_name === "Gandaki") {
+      official = officials.find(o => 
+        o.office_name === "Gandaki Province Monitor" && 
+        o.is_monitor === true
+      )
+    }
+    // For Kaski in Gandaki monitor, find the Kaski District Monitor
+    else if (isGandakiMonitor && office.office_name === "Kaski") {
+      official = officials.find(o => 
+        o.office_name === "Kaski District Monitor" && 
+        o.is_monitor === true
+      )
+    }
+    // For Pokhara in Kaski monitor, find the Pokhara Metropolitan Office official
+    else if (isKaskiMonitor && office.office_name === "Pokhara") {
+      // Find the Pokhara Metropolitan Monitor who receives messages from Kaski
+      official = officials.find(o => 
+        o.office_name === "Pokhara Metropolitan Monitor" && 
+        o.is_monitor === true
+      )
+      
+      if (!official) {
+        // Fallback to Pokhara Metropolitan Office
+        official = officials.find(o => 
+          o.office_name === "Pokhara Metropolitan Office" && 
+          !o.is_monitor
+        )
+      }
+    } else {
+      // Original logic for other monitors
+      official = officials.find(o => {
+        console.log('Checking official:', {
+          officialName: o.office_name,
+          targetName: office.office_name,
+          officialLevel: o.office_level,
+          targetLevel: o.office_level,
+          isMonitor: o.is_monitor
+        })
+        return o.office_name === office.office_name && 
+               o.office_level === office.office_level &&
+               !o.is_monitor
+      })
+    }
+>>>>>>> f876da6 (nischal commited)
     
     console.log('Found official:', official)
     
     if (!official) {
+<<<<<<< HEAD
       const errorMsg = `No official account found for "${office.office_name}". This office may not have an active account yet. Available officials: ${officials.filter(o => !o.is_monitor).map(o => o.office_name).join(', ')}`
+=======
+      const errorMsg = `No official account found for "${office.office_name}". This office may not have an active account yet.`
+>>>>>>> f876da6 (nischal commited)
       console.error(errorMsg)
       setError(errorMsg)
       alert(errorMsg)
@@ -213,11 +311,28 @@ const HierarchyDashboard = () => {
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl lg:text-[36px] font-semibold text-[#2B2B2B] mb-3">
+<<<<<<< HEAD
               Hierarchy Monitoring Dashboard
             </h1>
             <div className="w-16 h-1 bg-[#1E90FF] rounded-sm mb-4"></div>
             <p className="text-base md:text-lg text-[#4A4A4A] leading-relaxed">
               Monitor and analyze performance across all subordinate offices
+=======
+              {user?.office_name === "National Monitor" ? "National Monitoring Dashboard" :
+               user?.office_name === "Gandaki Province Monitor" ? "Gandaki Province Monitoring Dashboard" :
+               user?.office_name === "Kaski District Monitor" ? "Kaski District Monitoring Dashboard" : 
+               "Hierarchy Monitoring Dashboard"}
+            </h1>
+            <div className="w-16 h-1 bg-[#1E90FF] rounded-sm mb-4"></div>
+            <p className="text-base md:text-lg text-[#4A4A4A] leading-relaxed">
+              {user?.office_name === "National Monitor" 
+                ? "Monitor and analyze performance across all provinces in Nepal"
+                : user?.office_name === "Gandaki Province Monitor" 
+                ? "Monitor and analyze performance across all districts in Gandaki Province"
+                : user?.office_name === "Kaski District Monitor" 
+                ? "Monitor and analyze performance across all municipalities in Kaski District"
+                : "Monitor and analyze performance across all subordinate offices"}
+>>>>>>> f876da6 (nischal commited)
             </p>
             {user && (
               <div className="mt-4 p-4 bg-[#E8F4FD] rounded-lg flex items-center justify-between">
@@ -226,12 +341,26 @@ const HierarchyDashboard = () => {
                     <strong>Monitoring Level:</strong> {user.office_name} ({user.office_level})
                   </p>
                   <p className="text-xs text-[#4A4A4A] mt-1">
+<<<<<<< HEAD
                     Tracking {hierarchyData?.total_subordinates || 0} subordinate offices
+=======
+                    {user?.office_name === "National Monitor" 
+                      ? `Tracking ${hierarchyData?.total_subordinates || 0} provinces`
+                      : user?.office_name === "Gandaki Province Monitor" 
+                      ? `Tracking ${hierarchyData?.total_subordinates || 0} districts`
+                      : user?.office_name === "Kaski District Monitor"
+                      ? `Tracking ${hierarchyData?.total_subordinates || 0} municipalities`
+                      : `Tracking ${hierarchyData?.total_subordinates || 0} subordinate offices`}
+>>>>>>> f876da6 (nischal commited)
                   </p>
                 </div>
                 <button
                   onClick={() => setShowMessages(!showMessages)}
                   className="flex items-center gap-2 bg-[#1E90FF] text-white px-4 py-2 rounded hover:bg-[#1873CC] transition-all duration-300"
+<<<<<<< HEAD
+=======
+                  type="button"
+>>>>>>> f876da6 (nischal commited)
                 >
                   <Inbox size={20} />
                   Messages ({messages.filter(m => !m.read).length})
@@ -293,7 +422,16 @@ const HierarchyDashboard = () => {
             {/* Bar Chart - Applications by Office */}
             <div className="bg-white rounded-lg shadow-lg p-8 relative">
               <div className="flex items-center justify-between mb-4">
+<<<<<<< HEAD
                 <h2 className="text-xl font-semibold text-[#2B2B2B]">Applications by Office</h2>
+=======
+                <h2 className="text-xl font-semibold text-[#2B2B2B]">
+                  {user?.office_name === "National Monitor" ? "Applications by Province" :
+                   user?.office_name === "Gandaki Province Monitor" ? "Applications by District" :
+                   user?.office_name === "Kaski District Monitor" ? "Applications by Municipality" : 
+                   "Applications by Office"}
+                </h2>
+>>>>>>> f876da6 (nischal commited)
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => toggleChart('applications-by-office')}
@@ -349,7 +487,11 @@ const HierarchyDashboard = () => {
             </div>
 
             {/* Pie Chart - Applications by Type */}
+<<<<<<< HEAD
             <div className="bg-white rounded-lg shadow-lg p-8 relative">
+=======
+            <div className="bg-white rounded-lg shadow-lg p-8 relative overflow-hidden">
+>>>>>>> f876da6 (nischal commited)
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-semibold text-[#2B2B2B]">Applications by Type</h2>
                 <div className="flex items-center gap-2">
@@ -370,6 +512,7 @@ const HierarchyDashboard = () => {
                 </div>
               </div>
               {!collapsedCharts['applications-by-type'] && (pieChartData.length > 0 ? (
+<<<<<<< HEAD
                 <ResponsiveContainer width="100%" height={400}>
                   <PieChart>
                     <Pie
@@ -401,6 +544,48 @@ const HierarchyDashboard = () => {
                     />
                   </PieChart>
                 </ResponsiveContainer>
+=======
+                <div className="w-full" style={{ maxHeight: '400px', overflow: 'hidden' }}>
+                  <ResponsiveContainer width="100%" height={400}>
+                    <PieChart margin={{ top: 5, right: 5, bottom: 70, left: 5 }}>
+                      <Pie
+                        data={pieChartData}
+                        cx="50%"
+                        cy="42%"
+                        labelLine={false}
+                        label={false}
+                        outerRadius={80}
+                        fill="#8884d8"
+                        dataKey="value"
+                        paddingAngle={2}
+                      >
+                        {pieChartData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'white', 
+                          border: '1px solid #E0E0E0', 
+                          borderRadius: '8px',
+                          padding: '10px'
+                        }}
+                        formatter={(value, name) => [value, name]}
+                      />
+                      <Legend 
+                        verticalAlign="bottom" 
+                        height={65}
+                        iconType="circle"
+                        wrapperStyle={{ fontSize: '11px', paddingTop: '5px' }}
+                        formatter={(value) => {
+                          const truncated = value.length > 16 ? value.substring(0, 16) + '...' : value
+                          return truncated
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+>>>>>>> f876da6 (nischal commited)
               ) : (
                 <div className="h-[400px] flex items-center justify-center text-[#4A4A4A]">
                   No applications data available
@@ -411,7 +596,16 @@ const HierarchyDashboard = () => {
             {/* Bar Chart - Efficiency Ranking */}
             <div className="bg-white rounded-lg shadow-lg p-8 relative">
               <div className="flex items-center justify-between mb-4">
+<<<<<<< HEAD
                 <h2 className="text-xl font-semibold text-[#2B2B2B]">Office Efficiency Ranking</h2>
+=======
+                <h2 className="text-xl font-semibold text-[#2B2B2B]">
+                  {user?.office_name === "National Monitor" ? "Province Efficiency Ranking" :
+                   user?.office_name === "Gandaki Province Monitor" ? "District Efficiency Ranking" :
+                   user?.office_name === "Kaski District Monitor" ? "Municipal Efficiency Ranking" : 
+                   "Office Efficiency Ranking"}
+                </h2>
+>>>>>>> f876da6 (nischal commited)
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => toggleChart('efficiency-ranking')}
@@ -469,7 +663,16 @@ const HierarchyDashboard = () => {
 
           {/* Subordinate Offices Table */}
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+<<<<<<< HEAD
             <h2 className="text-2xl font-semibold text-[#2B2B2B] mb-4">Subordinate Office Details</h2>
+=======
+            <h2 className="text-2xl font-semibold text-[#2B2B2B] mb-4">
+              {user?.office_name === "National Monitor" ? "Province Office Details" :
+               user?.office_name === "Gandaki Province Monitor" ? "District Office Details" :
+               user?.office_name === "Kaski District Monitor" ? "Municipal Office Details" : 
+               "Subordinate Office Details"}
+            </h2>
+>>>>>>> f876da6 (nischal commited)
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -505,6 +708,7 @@ const HierarchyDashboard = () => {
                       </td>
                       <td className="text-center py-3 px-4 text-sm text-[#4A4A4A]">{office.avg_processing_time} days</td>
                       <td className="text-center py-3 px-4">
+<<<<<<< HEAD
                         <button
                           onClick={() => openMessageModal(office)}
                           className="flex items-center gap-1 text-sm text-[#1E90FF] hover:text-[#1873CC] mx-auto"
@@ -512,6 +716,21 @@ const HierarchyDashboard = () => {
                           <Send size={16} />
                           Contact
                         </button>
+=======
+                        {(user?.office_name === "National Monitor" && office.office_name !== "Gandaki") ||
+                         (user?.office_name === "Gandaki Province Monitor" && office.office_name !== "Kaski") ||
+                         (user?.office_name === "Kaski District Monitor" && office.office_name !== "Pokhara") ? (
+                          <span className="text-xs text-[#B8B8B8] italic">Display Only</span>
+                        ) : (
+                          <button
+                            onClick={() => openMessageModal(office)}
+                            className="flex items-center gap-1 text-sm text-[#1E90FF] hover:text-[#1873CC] mx-auto"
+                          >
+                            <Send size={16} />
+                            Contact
+                          </button>
+                        )}
+>>>>>>> f876da6 (nischal commited)
                       </td>
                     </tr>
                   ))}
@@ -520,6 +739,7 @@ const HierarchyDashboard = () => {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Messages Section */}
           {showMessages && (
             <div className="bg-white rounded-lg shadow-lg p-6">
@@ -558,6 +778,9 @@ const HierarchyDashboard = () => {
               )}
             </div>
           )}
+=======
+          {/* Messages Section - Removed inline, now in modal below */}
+>>>>>>> f876da6 (nischal commited)
         </div>
       </div>
 
@@ -651,10 +874,105 @@ const HierarchyDashboard = () => {
         </div>
       )}
 
+<<<<<<< HEAD
       {/* Maximized Chart Modal */}
       {maximizedChart && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6">
           <div className="bg-white rounded-lg shadow-2xl w-full h-full max-w-[92vw] max-h-[92vh] p-8 flex flex-col relative">
+=======
+      {/* Messages Modal */}
+      {showMessages && (
+        <div 
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowMessages(false)}
+        >
+          <div 
+            className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-semibold text-[#2B2B2B]">Received Messages</h2>
+              <button 
+                onClick={() => setShowMessages(false)}
+                className="text-[#4A4A4A] hover:text-[#2B2B2B] transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+
+            {messages.length === 0 ? (
+              <div className="text-center py-12">
+                <Inbox size={64} className="text-[#E0E0E0] mx-auto mb-4" />
+                <p className="text-[#4A4A4A]">No messages yet</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    onClick={() => !message.read && markMessageAsRead(message.id)}
+                    className={`p-5 rounded-lg border cursor-pointer transition-all ${
+                      message.read 
+                        ? 'bg-white border-[#E0E0E0] hover:border-[#BDBDBD]' 
+                        : 'bg-[#E8F4FD] border-[#1E90FF] hover:shadow-md'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        {message.read ? (
+                          <MailOpen size={20} className="text-[#4A4A4A]" />
+                        ) : (
+                          <Mail size={20} className="text-[#1E90FF]" />
+                        )}
+                        <div>
+                          <span className="font-semibold text-[#2B2B2B] text-base">
+                            {message.sender_name}
+                          </span>
+                          <span className="text-sm text-[#4A4A4A] ml-2">
+                            ({message.sender_office})
+                          </span>
+                        </div>
+                      </div>
+                      <span className={`text-xs px-3 py-1 rounded-full ${
+                        message.priority === 'urgent' ? 'bg-[#FFEBEE] text-[#E74C3C]' :
+                        message.priority === 'high' ? 'bg-[#FFF3E0] text-[#F39C12]' :
+                        'bg-[#E0E0E0] text-[#4A4A4A]'
+                      }`}>
+                        {message.priority}
+                      </span>
+                    </div>
+                    
+                    <h4 className="font-semibold text-[#2B2B2B] text-lg mb-2">
+                      {message.subject}
+                    </h4>
+                    
+                    <p className="text-sm text-[#4A4A4A] mb-3 leading-relaxed">
+                      {message.content}
+                    </p>
+                    
+                    <div className="flex items-center justify-between pt-3 border-t border-[#E0E0E0]">
+                      <p className="text-xs text-[#B8B8B8]">
+                        {new Date(message.created_at).toLocaleString()}
+                      </p>
+                      {!message.read && (
+                        <span className="text-xs font-medium text-[#1E90FF]">
+                          Click to mark as read
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Maximized Chart Modal */}
+      {maximizedChart && (
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6">
+          <div className="bg-white rounded-lg shadow-2xl w-full h-full max-w-[92vw] max-h-[92vh] p-8 flex flex-col relative overflow-hidden">
+>>>>>>> f876da6 (nischal commited)
             {/* Close button - Top right corner */}
             <button
               onClick={() => setMaximizedChart(null)}
@@ -668,9 +986,25 @@ const HierarchyDashboard = () => {
             {/* Header */}
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-[#2B2B2B]">
+<<<<<<< HEAD
                 {maximizedChart === 'applications-by-office' && 'Applications by Office'}
                 {maximizedChart === 'applications-by-type' && 'Applications by Type'}
                 {maximizedChart === 'efficiency-ranking' && 'Office Efficiency Ranking'}
+=======
+                {maximizedChart === 'applications-by-office' && (
+                  user?.office_name === "National Monitor" ? 'Applications by Province' :
+                  user?.office_name === "Gandaki Province Monitor" ? 'Applications by District' :
+                  user?.office_name === "Kaski District Monitor" ? 'Applications by Municipality' : 
+                  'Applications by Office'
+                )}
+                {maximizedChart === 'applications-by-type' && 'Applications by Type'}
+                {maximizedChart === 'efficiency-ranking' && (
+                  user?.office_name === "National Monitor" ? 'Province Efficiency Ranking' :
+                  user?.office_name === "Gandaki Province Monitor" ? 'District Efficiency Ranking' :
+                  user?.office_name === "Kaski District Monitor" ? 'Municipal Efficiency Ranking' : 
+                  'Office Efficiency Ranking'
+                )}
+>>>>>>> f876da6 (nischal commited)
               </h3>
               <div className="w-20 h-1 bg-[#1E90FF] rounded-sm mt-2"></div>
             </div>
@@ -710,6 +1044,7 @@ const HierarchyDashboard = () => {
               )}
 
               {maximizedChart === 'applications-by-type' && pieChartData.length > 0 && (
+<<<<<<< HEAD
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -743,6 +1078,49 @@ const HierarchyDashboard = () => {
                     />
                   </PieChart>
                 </ResponsiveContainer>
+=======
+                <div className="overflow-hidden h-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart margin={{ top: 30, right: 30, bottom: 100, left: 30 }}>
+                      <Pie
+                        data={pieChartData}
+                        cx="50%"
+                        cy="42%"
+                        labelLine={false}
+                        label={false}
+                        outerRadius="50%"
+                        fill="#8884d8"
+                        dataKey="value"
+                        paddingAngle={2}
+                      >
+                        {pieChartData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'white', 
+                          border: '1px solid #E0E0E0', 
+                          borderRadius: '8px',
+                          padding: '12px',
+                          fontSize: '14px'
+                        }}
+                        formatter={(value, name) => [value, name]}
+                      />
+                      <Legend 
+                        verticalAlign="bottom" 
+                        height={80}
+                        iconType="circle"
+                        wrapperStyle={{ fontSize: '14px', paddingTop: '20px' }}
+                        formatter={(value) => {
+                          const truncated = value.length > 30 ? value.substring(0, 30) + '...' : value
+                          return truncated
+                        }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+>>>>>>> f876da6 (nischal commited)
               )}
 
               {maximizedChart === 'efficiency-ranking' && efficiencyData.length > 0 && (
