@@ -1,0 +1,38 @@
+{
+  "24a47995-96fd-4684-b399-605637cc3906": {
+    "id": "24a47995-96fd-4684-b399-605637cc3906",
+    "email": "testuser1@gmail.com",
+    "full_name": "testuser1",
+    "phone": "123456789",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$gNqSLLgi.cuDdw6DUgUcGubAg0dxp6hI975Y2EHQGCfBDuWoXbIFG",
+    "created_at": "2025-11-21T04:02:53.726028",
+    "citizenship_number": "123456787654",
+    "office_level": null,
+    "office_name": null
+  },
+  "cee7ee68-91b3-4c7b-a260-fccc8bc094a1": {
+    "id": "cee7ee68-91b3-4c7b-a260-fccc8bc094a1",
+    "email": "poudlearadhya@gmail.com",
+    "full_name": "Aradhya Paudel",
+    "phone": "9842958382",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$AYiRg2vQpC7Cj7b40Ldvre2/1V4v.1jc0RIus10Bxgg3e2RJfL4bS",
+    "created_at": "2025-11-21T09:17:41.729869",
+    "citizenship_number": "95100",
+    "office_level": null,
+    "office_name": null
+  },
+  "b3136dd4-b7bf-47cc-93a5-a9aea51e47a2": {
+    "id": "b3136dd4-b7bf-47cc-93a5-a9aea51e47a2",
+    "email": "kritagyaggg@gmail.com",
+    "full_name": "Keish",
+    "phone": "569565856",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$NpWHFu67i3oqCVQf8n5w1uUdeNWdzrTr9vs8m27HKLdsag9R8TNsu",
+    "created_at": "2025-11-21T09:20:01.508579",
+    "citizenship_number": "E8heodgdudg",
+    "office_level": null,
+    "office_name": null
+  }
+}
