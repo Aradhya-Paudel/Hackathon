@@ -8610,6 +8610,7 @@
     "target_office_level": "local",
     "target_office_name": "Ward 13 - Pokhara Ward Office",
     "estimated_days": 21,
+<<<<<<< HEAD
     "status": "Rejected",
     "submitted_date": "2025-11-18T14:29:26.590713",
     "completed_date": null,
@@ -8617,6 +8618,14 @@
     "approved": false,
     "rejection_message": "fake",
     "progress": 0
+=======
+    "status": "Submitted",
+    "submitted_date": "2025-11-18T14:29:26.590713",
+    "completed_date": null,
+    "current_stage": "Submitted",
+    "approved": null,
+    "rejection_message": null
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
   },
   "fc242ad4-8890-41d9-bea8-5ce744788417": {
     "id": "fc242ad4-8890-41d9-bea8-5ce744788417",

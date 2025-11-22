@@ -77,6 +77,11 @@ const HierarchyDashboard = () => {
     }
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
   const markMessageAsRead = async (messageId) => {
     try {
       await officeAPI.markMessageRead(messageId)
@@ -86,6 +91,10 @@ const HierarchyDashboard = () => {
     }
   }
 
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
   const loadOfficials = async () => {
     try {
       const officialsList = await officeAPI.getAllOfficials()
@@ -127,6 +136,26 @@ const HierarchyDashboard = () => {
     console.log('Opening message modal for office:', office)
     console.log('Available officials:', officials)
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    setSelectedOffice(office)
+    
+    // Find the official from this office (not a monitor account)
+    const official = officials.find(o => {
+      console.log('Checking official:', {
+        officialName: o.office_name,
+        targetName: office.office_name,
+        officialLevel: o.office_level,
+        targetLevel: o.office_level,
+        isMonitor: o.is_monitor
+      })
+      return o.office_name === office.office_name && 
+             o.office_level === office.office_level &&
+             !o.is_monitor
+    })
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
     const isNationalMonitor = user?.office_name === "National Monitor"
     const isGandakiMonitor = user?.office_name === "Gandaki Province Monitor"
     const isKaskiMonitor = user?.office_name === "Kaski District Monitor"
@@ -206,11 +235,23 @@ const HierarchyDashboard = () => {
                !o.is_monitor
       })
     }
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
     
     console.log('Found official:', official)
     
     if (!official) {
+<<<<<<< HEAD
       const errorMsg = `No official account found for "${office.office_name}". This office may not have an active account yet.`
+=======
+<<<<<<< HEAD
+      const errorMsg = `No official account found for "${office.office_name}". This office may not have an active account yet. Available officials: ${officials.filter(o => !o.is_monitor).map(o => o.office_name).join(', ')}`
+=======
+      const errorMsg = `No official account found for "${office.office_name}". This office may not have an active account yet.`
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
       console.error(errorMsg)
       setError(errorMsg)
       alert(errorMsg)
@@ -286,6 +327,16 @@ const HierarchyDashboard = () => {
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl lg:text-[36px] font-semibold text-[#2B2B2B] mb-3">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+              Hierarchy Monitoring Dashboard
+            </h1>
+            <div className="w-16 h-1 bg-[#1E90FF] rounded-sm mb-4"></div>
+            <p className="text-base md:text-lg text-[#4A4A4A] leading-relaxed">
+              Monitor and analyze performance across all subordinate offices
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
               {user?.office_name === "National Monitor" ? "National Monitoring Dashboard" :
                user?.office_name === "Gandaki Province Monitor" ? "Gandaki Province Monitoring Dashboard" :
                user?.office_name === "Kaski District Monitor" ? "Kaski District Monitoring Dashboard" : 
@@ -300,6 +351,10 @@ const HierarchyDashboard = () => {
                 : user?.office_name === "Kaski District Monitor" 
                 ? "Monitor and analyze performance across all municipalities in Kaski District"
                 : "Monitor and analyze performance across all subordinate offices"}
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
             </p>
             {user && (
               <div className="mt-4 p-4 bg-[#E8F4FD] rounded-lg flex items-center justify-between">
@@ -308,6 +363,12 @@ const HierarchyDashboard = () => {
                     <strong>Monitoring Level:</strong> {user.office_name} ({user.office_level})
                   </p>
                   <p className="text-xs text-[#4A4A4A] mt-1">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                    Tracking {hierarchyData?.total_subordinates || 0} subordinate offices
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                     {user?.office_name === "National Monitor" 
                       ? `Tracking ${hierarchyData?.total_subordinates || 0} provinces`
                       : user?.office_name === "Gandaki Province Monitor" 
@@ -315,12 +376,23 @@ const HierarchyDashboard = () => {
                       : user?.office_name === "Kaski District Monitor"
                       ? `Tracking ${hierarchyData?.total_subordinates || 0} municipalities`
                       : `Tracking ${hierarchyData?.total_subordinates || 0} subordinate offices`}
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                   </p>
                 </div>
                 <button
                   onClick={() => setShowMessages(!showMessages)}
                   className="flex items-center gap-2 bg-[#1E90FF] text-white px-4 py-2 rounded hover:bg-[#1873CC] transition-all duration-300"
+<<<<<<< HEAD
                   type="button"
+=======
+<<<<<<< HEAD
+=======
+                  type="button"
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 >
                   <Inbox size={20} />
                   Messages ({messages.filter(m => !m.read).length})
@@ -382,12 +454,22 @@ const HierarchyDashboard = () => {
             {/* Bar Chart - Applications by Office */}
             <div className="bg-white rounded-lg shadow-lg p-8 relative">
               <div className="flex items-center justify-between mb-4">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                <h2 className="text-xl font-semibold text-[#2B2B2B]">Applications by Office</h2>
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 <h2 className="text-xl font-semibold text-[#2B2B2B]">
                   {user?.office_name === "National Monitor" ? "Applications by Province" :
                    user?.office_name === "Gandaki Province Monitor" ? "Applications by District" :
                    user?.office_name === "Kaski District Monitor" ? "Applications by Municipality" : 
                    "Applications by Office"}
                 </h2>
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => toggleChart('applications-by-office')}
@@ -443,7 +525,15 @@ const HierarchyDashboard = () => {
             </div>
 
             {/* Pie Chart - Applications by Type */}
+<<<<<<< HEAD
             <div className="bg-white rounded-lg shadow-lg p-8 relative overflow-hidden">
+=======
+<<<<<<< HEAD
+            <div className="bg-white rounded-lg shadow-lg p-8 relative">
+=======
+            <div className="bg-white rounded-lg shadow-lg p-8 relative overflow-hidden">
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-semibold text-[#2B2B2B]">Applications by Type</h2>
                 <div className="flex items-center gap-2">
@@ -464,6 +554,42 @@ const HierarchyDashboard = () => {
                 </div>
               </div>
               {!collapsedCharts['applications-by-type'] && (pieChartData.length > 0 ? (
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                <ResponsiveContainer width="100%" height={400}>
+                  <PieChart>
+                    <Pie
+                      data={pieChartData}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={true}
+                      label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                      outerRadius={100}
+                      fill="#8884d8"
+                      dataKey="value"
+                    >
+                      {pieChartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'white', 
+                        border: '1px solid #E0E0E0', 
+                        borderRadius: '8px',
+                        padding: '10px'
+                      }}
+                    />
+                    <Legend 
+                      verticalAlign="bottom" 
+                      height={36}
+                      iconType="circle"
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 <div className="w-full" style={{ maxHeight: '400px', overflow: 'hidden' }}>
                   <ResponsiveContainer width="100%" height={400}>
                     <PieChart margin={{ top: 5, right: 5, bottom: 70, left: 5 }}>
@@ -504,6 +630,10 @@ const HierarchyDashboard = () => {
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
               ) : (
                 <div className="h-[400px] flex items-center justify-center text-[#4A4A4A]">
                   No applications data available
@@ -514,12 +644,22 @@ const HierarchyDashboard = () => {
             {/* Bar Chart - Efficiency Ranking */}
             <div className="bg-white rounded-lg shadow-lg p-8 relative">
               <div className="flex items-center justify-between mb-4">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                <h2 className="text-xl font-semibold text-[#2B2B2B]">Office Efficiency Ranking</h2>
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 <h2 className="text-xl font-semibold text-[#2B2B2B]">
                   {user?.office_name === "National Monitor" ? "Province Efficiency Ranking" :
                    user?.office_name === "Gandaki Province Monitor" ? "District Efficiency Ranking" :
                    user?.office_name === "Kaski District Monitor" ? "Municipal Efficiency Ranking" : 
                    "Office Efficiency Ranking"}
                 </h2>
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => toggleChart('efficiency-ranking')}
@@ -577,12 +717,22 @@ const HierarchyDashboard = () => {
 
           {/* Subordinate Offices Table */}
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <h2 className="text-2xl font-semibold text-[#2B2B2B] mb-4">Subordinate Office Details</h2>
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
             <h2 className="text-2xl font-semibold text-[#2B2B2B] mb-4">
               {user?.office_name === "National Monitor" ? "Province Office Details" :
                user?.office_name === "Gandaki Province Monitor" ? "District Office Details" :
                user?.office_name === "Kaski District Monitor" ? "Municipal Office Details" : 
                "Subordinate Office Details"}
             </h2>
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -618,6 +768,18 @@ const HierarchyDashboard = () => {
                       </td>
                       <td className="text-center py-3 px-4 text-sm text-[#4A4A4A]">{office.avg_processing_time} days</td>
                       <td className="text-center py-3 px-4">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                        <button
+                          onClick={() => openMessageModal(office)}
+                          className="flex items-center gap-1 text-sm text-[#1E90FF] hover:text-[#1873CC] mx-auto"
+                        >
+                          <Send size={16} />
+                          Contact
+                        </button>
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                         {(user?.office_name === "National Monitor" && office.office_name !== "Gandaki") ||
                          (user?.office_name === "Gandaki Province Monitor" && office.office_name !== "Kaski") ||
                          (user?.office_name === "Kaski District Monitor" && office.office_name !== "Pokhara") ? (
@@ -631,6 +793,10 @@ const HierarchyDashboard = () => {
                             Contact
                           </button>
                         )}
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                       </td>
                     </tr>
                   ))}
@@ -639,7 +805,52 @@ const HierarchyDashboard = () => {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Messages Section - Removed inline, now in modal below */}
+=======
+<<<<<<< HEAD
+          {/* Messages Section */}
+          {showMessages && (
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h2 className="text-2xl font-semibold text-[#2B2B2B] mb-4">Received Messages</h2>
+              {messages.length === 0 ? (
+                <p className="text-center text-[#4A4A4A] py-8">No messages yet</p>
+              ) : (
+                <div className="space-y-3">
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`p-4 rounded-lg border ${
+                        message.read ? 'bg-white border-[#E0E0E0]' : 'bg-[#E8F4FD] border-[#1E90FF]'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          {message.read ? <MailOpen size={18} className="text-[#4A4A4A]" /> : <Mail size={18} className="text-[#1E90FF]" />}
+                          <span className="font-semibold text-[#2B2B2B]">{message.sender_name}</span>
+                          <span className="text-xs text-[#4A4A4A]">({message.sender_office})</span>
+                        </div>
+                        <span className={`text-xs px-2 py-1 rounded ${
+                          message.priority === 'urgent' ? 'bg-[#FFEBEE] text-[#E74C3C]' :
+                          message.priority === 'high' ? 'bg-[#FFF3E0] text-[#F39C12]' :
+                          'bg-[#E0E0E0] text-[#4A4A4A]'
+                        }`}>
+                          {message.priority}
+                        </span>
+                      </div>
+                      <h4 className="font-semibold text-[#2B2B2B] mb-1">{message.subject}</h4>
+                      <p className="text-sm text-[#4A4A4A] mb-2">{message.content}</p>
+                      <p className="text-xs text-[#B8B8B8]">{new Date(message.created_at).toLocaleString()}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+=======
+          {/* Messages Section - Removed inline, now in modal below */}
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
         </div>
       </div>
 
@@ -733,6 +944,15 @@ const HierarchyDashboard = () => {
         </div>
       )}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      {/* Maximized Chart Modal */}
+      {maximizedChart && (
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6">
+          <div className="bg-white rounded-lg shadow-2xl w-full h-full max-w-[92vw] max-h-[92vh] p-8 flex flex-col relative">
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
       {/* Messages Modal */}
       {showMessages && (
         <div 
@@ -825,6 +1045,10 @@ const HierarchyDashboard = () => {
       {maximizedChart && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6">
           <div className="bg-white rounded-lg shadow-2xl w-full h-full max-w-[92vw] max-h-[92vh] p-8 flex flex-col relative overflow-hidden">
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
             {/* Close button - Top right corner */}
             <button
               onClick={() => setMaximizedChart(null)}
@@ -838,6 +1062,14 @@ const HierarchyDashboard = () => {
             {/* Header */}
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-[#2B2B2B]">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                {maximizedChart === 'applications-by-office' && 'Applications by Office'}
+                {maximizedChart === 'applications-by-type' && 'Applications by Type'}
+                {maximizedChart === 'efficiency-ranking' && 'Office Efficiency Ranking'}
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 {maximizedChart === 'applications-by-office' && (
                   user?.office_name === "National Monitor" ? 'Applications by Province' :
                   user?.office_name === "Gandaki Province Monitor" ? 'Applications by District' :
@@ -851,6 +1083,10 @@ const HierarchyDashboard = () => {
                   user?.office_name === "Kaski District Monitor" ? 'Municipal Efficiency Ranking' : 
                   'Office Efficiency Ranking'
                 )}
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
               </h3>
               <div className="w-20 h-1 bg-[#1E90FF] rounded-sm mt-2"></div>
             </div>
@@ -890,6 +1126,44 @@ const HierarchyDashboard = () => {
               )}
 
               {maximizedChart === 'applications-by-type' && pieChartData.length > 0 && (
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={pieChartData}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={true}
+                      label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                      outerRadius="60%"
+                      fill="#8884d8"
+                      dataKey="value"
+                    >
+                      {pieChartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'white', 
+                        border: '1px solid #E0E0E0', 
+                        borderRadius: '8px',
+                        padding: '12px',
+                        fontSize: '14px'
+                      }}
+                    />
+                    <Legend 
+                      verticalAlign="bottom" 
+                      height={50}
+                      iconType="circle"
+                      wrapperStyle={{ fontSize: '14px' }}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
                 <div className="overflow-hidden h-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart margin={{ top: 30, right: 30, bottom: 100, left: 30 }}>
@@ -931,6 +1205,10 @@ const HierarchyDashboard = () => {
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
+<<<<<<< HEAD
+=======
+>>>>>>> f876da6 (nischal commited)
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
               )}
 
               {maximizedChart === 'efficiency-ranking' && efficiencyData.length > 0 && (

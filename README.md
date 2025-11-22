@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+# Frontend-hackathon
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
 # Sarkaha - Government Monitoring Portal
 
 A comprehensive government official monitoring and accountability system for Nepal. Track applications in real-time, monitor government efficiency, and ensure timely delivery of public services.
@@ -185,3 +191,7 @@ MIT License - Built for Nepal Government Digital Transformation Initiative
 
 Built with React, Tailwind CSS, and a vision for transparent governance in Nepal.
 
+<<<<<<< HEAD
+=======
+>>>>>>> testing
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2

@@ -546,6 +546,7 @@
     "office_name": "National Monitor",
     "is_monitor": true,
     "monitors": ["province", "district", "metropolitan", "local"]
+<<<<<<< HEAD
   },
   "off-pokhara-municipal": {
     "id": "off-pokhara-municipal",
@@ -606,5 +607,7 @@
     "citizenship_number": null,
     "office_level": "municipal",
     "office_name": "Rupa"
+=======
+>>>>>>> 277c4fd8bc6e933c1c322d56a2273098e60883c2
   }
 }
