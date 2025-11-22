@@ -38,19 +38,6 @@
     "created_at": "2025-11-21T08:55:25.568668",
     "read": true
   },
-  "a647bb05-fc1c-43bd-998b-581f2e70f4ed": {
-    "id": "a647bb05-fc1c-43bd-998b-581f2e70f4ed",
-    "sender_id": "monitor-pokhara-metro",
-    "sender_office": "Pokhara Metropolitan Monitor",
-    "sender_name": "Pokhara Metropolitan Monitor",
-    "recipient_id": "off-ward-13",
-    "recipient_office": "Ward 13 - Pokhara Ward Office",
-    "subject": "oe gay",
-    "content": "talai chakka mula k garis",
-    "priority": "high",
-    "created_at": "2025-11-21T09:27:35.751982",
-    "read": true
-  },
   "31300135-a212-45a1-a560-0d73a65691cc": {
     "id": "31300135-a212-45a1-a560-0d73a65691cc",
     "sender_id": "monitor-pokhara-metro",
@@ -114,19 +101,6 @@
     "content": "test",
     "priority": "medium",
     "created_at": "2025-11-21T12:08:27.477351",
-    "read": false
-  },
-  "edad6631-59d9-4c4a-bc8a-501b3be411aa": {
-    "id": "edad6631-59d9-4c4a-bc8a-501b3be411aa",
-    "sender_id": "monitor-national",
-    "sender_office": "National Monitor",
-    "sender_name": "National Government Monitor",
-    "recipient_id": "monitor-gandaki-province",
-    "recipient_office": "Gandaki",
-    "subject": "Jobless",
-    "content": "berojzar ardha\n",
-    "priority": "medium",
-    "created_at": "2025-11-21T12:39:15.380109",
     "read": false
   }
 }

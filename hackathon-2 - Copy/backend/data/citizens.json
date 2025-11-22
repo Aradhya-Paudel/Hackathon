@@ -34,5 +34,29 @@
     "citizenship_number": "E8heodgdudg",
     "office_level": null,
     "office_name": null
+  },
+  "691b2681-94bd-4e54-ac32-22840c7979cf": {
+    "id": "691b2681-94bd-4e54-ac32-22840c7979cf",
+    "email": "poudlearahya@gmail.com",
+    "full_name": "Aradhya Paudel",
+    "phone": "9842958382",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$BK52YH2WtfNUbTkY08pdBeOZIYh6MTwpLJGPHCXeDN6akAs1Lt/jC",
+    "created_at": "2025-11-22T06:18:02.780148",
+    "citizenship_number": "6985",
+    "office_level": null,
+    "office_name": null
+  },
+  "6bf2b069-3a4b-415c-a4e3-d06e35196c6d": {
+    "id": "6bf2b069-3a4b-415c-a4e3-d06e35196c6d",
+    "email": "paudel@gmail.com",
+    "full_name": "Aradhya Paudel",
+    "phone": "9842958382",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$a2KB6NaCP0GZswwItS8FKOvlO3yC.mq/UjrSPHahtA2/NreuoV6hO",
+    "created_at": "2025-11-22T06:21:07.872813",
+    "citizenship_number": "6565",
+    "office_level": null,
+    "office_name": null
   }
 }

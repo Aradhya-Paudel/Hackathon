@@ -11,18 +11,6 @@
     "office_level": null,
     "office_name": null
   },
-  "58e23132-fcd0-4778-97a4-edd357574d4e": {
-    "id": "58e23132-fcd0-4778-97a4-edd357574d4e",
-    "email": "LODUKG@lodu.com",
-    "full_name": "LODU KG",
-    "phone": "9814130208",
-    "user_type": "citizen",
-    "hashed_password": "$2b$12$p.653kaC5fotXR8DQyQnl.vMYBCaVM8y5MralQrZUCLtjC9QxaxOO",
-    "created_at": "2025-11-21T02:53:30.733586",
-    "citizenship_number": "12",
-    "office_level": null,
-    "office_name": null
-  },
   "off-land-revenue-001": {
     "id": "off-land-revenue-001",
     "email": "landrevenue@kaski.gov.np",
