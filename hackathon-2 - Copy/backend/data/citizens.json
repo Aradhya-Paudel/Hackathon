@@ -5,7 +5,7 @@
     "full_name": "testuser1",
     "phone": "123456789",
     "user_type": "citizen",
-    "hashed_password": "$2b$12$gNqSLLgi.cuDdw6DUgUcGubAg0dxp6hI975Y2EHQGCfBDuWoXbIFG",
+    "hashed_password": "$2b$12$PzvmJXPVGbVTq.Mzl36e6O2oY/kCxx/yWej6ADvycOQGs5MDOFKYy",
     "created_at": "2025-11-21T04:02:53.726028",
     "citizenship_number": "123456787654",
     "office_level": null,

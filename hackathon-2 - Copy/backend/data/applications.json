@@ -755,12 +755,13 @@
     "target_office_level": "local",
     "target_office_name": "Ward 1 - Pokhara Ward Office",
     "estimated_days": 18,
-    "status": "Submitted",
+    "status": "In Progress",
     "submitted_date": "2025-11-10T14:29:26.532288",
     "completed_date": null,
-    "current_stage": "Submitted",
-    "approved": null,
-    "rejection_message": null
+    "current_stage": "Processing",
+    "approved": true,
+    "rejection_message": null,
+    "progress": 25
   },
   "4fc77a19-205a-4444-91d8-a3f89c9f42c1": {
     "id": "4fc77a19-205a-4444-91d8-a3f89c9f42c1",
@@ -23229,5 +23230,45 @@
     "user_id": "cee7ee68-91b3-4c7b-a260-fccc8bc094a1",
     "approved": true,
     "completed_date": "2025-11-22T07:27:38.334Z"
+  },
+  "APP6D4BB6B0": {
+    "id": "APP6D4BB6B0",
+    "full_name": "testuser1",
+    "email": "testuser1@gmail.com",
+    "phone": "123456789",
+    "address": "Dharapani",
+    "service_type": "birth-certificate",
+    "citizenship_number": "123456787654",
+    "description": "",
+    "target_office_level": "local",
+    "target_office_name": "Ward 5 - Pokhara Ward Office",
+    "submitted_date": "2026-01-03T04:35:07.990421",
+    "status": "Completed",
+    "current_stage": "Processing",
+    "estimated_days": 6,
+    "progress": 100,
+    "user_id": "24a47995-96fd-4684-b399-605637cc3906",
+    "approved": true,
+    "completed_date": "2026-01-03T04:35:27.217Z"
+  },
+  "APP369745D7": {
+    "id": "APP369745D7",
+    "full_name": "testuser1",
+    "email": "testuser1@gmail.com",
+    "phone": "123456789",
+    "address": "asdf",
+    "service_type": "birth-certificate",
+    "citizenship_number": "123456787654",
+    "description": "",
+    "target_office_level": "local",
+    "target_office_name": "Ward 5 - Pokhara Ward Office",
+    "submitted_date": "2026-01-03T04:37:00.640536",
+    "status": "Completed",
+    "current_stage": "Processing",
+    "estimated_days": 7,
+    "progress": 100,
+    "user_id": "24a47995-96fd-4684-b399-605637cc3906",
+    "approved": true,
+    "completed_date": "2026-01-03T04:37:19.223Z"
   }
 }
