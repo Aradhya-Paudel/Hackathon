@@ -1,0 +1,62 @@
+{
+  "24a47995-96fd-4684-b399-605637cc3906": {
+    "id": "24a47995-96fd-4684-b399-605637cc3906",
+    "email": "testuser1@gmail.com",
+    "full_name": "testuser1",
+    "phone": "123456789",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$PzvmJXPVGbVTq.Mzl36e6O2oY/kCxx/yWej6ADvycOQGs5MDOFKYy",
+    "created_at": "2025-11-21T04:02:53.726028",
+    "citizenship_number": "123456787654",
+    "office_level": null,
+    "office_name": null
+  },
+  "cee7ee68-91b3-4c7b-a260-fccc8bc094a1": {
+    "id": "cee7ee68-91b3-4c7b-a260-fccc8bc094a1",
+    "email": "poudlearadhya@gmail.com",
+    "full_name": "Aradhya Paudel",
+    "phone": "9842958382",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$AYiRg2vQpC7Cj7b40Ldvre2/1V4v.1jc0RIus10Bxgg3e2RJfL4bS",
+    "created_at": "2025-11-21T09:17:41.729869",
+    "citizenship_number": "95100",
+    "office_level": null,
+    "office_name": null
+  },
+  "b3136dd4-b7bf-47cc-93a5-a9aea51e47a2": {
+    "id": "b3136dd4-b7bf-47cc-93a5-a9aea51e47a2",
+    "email": "kritagyaggg@gmail.com",
+    "full_name": "Keish",
+    "phone": "569565856",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$NpWHFu67i3oqCVQf8n5w1uUdeNWdzrTr9vs8m27HKLdsag9R8TNsu",
+    "created_at": "2025-11-21T09:20:01.508579",
+    "citizenship_number": "E8heodgdudg",
+    "office_level": null,
+    "office_name": null
+  },
+  "691b2681-94bd-4e54-ac32-22840c7979cf": {
+    "id": "691b2681-94bd-4e54-ac32-22840c7979cf",
+    "email": "poudlearahya@gmail.com",
+    "full_name": "Aradhya Paudel",
+    "phone": "9842958382",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$BK52YH2WtfNUbTkY08pdBeOZIYh6MTwpLJGPHCXeDN6akAs1Lt/jC",
+    "created_at": "2025-11-22T06:18:02.780148",
+    "citizenship_number": "6985",
+    "office_level": null,
+    "office_name": null
+  },
+  "6bf2b069-3a4b-415c-a4e3-d06e35196c6d": {
+    "id": "6bf2b069-3a4b-415c-a4e3-d06e35196c6d",
+    "email": "paudel@gmail.com",
+    "full_name": "Aradhya Paudel",
+    "phone": "9842958382",
+    "user_type": "citizen",
+    "hashed_password": "$2b$12$a2KB6NaCP0GZswwItS8FKOvlO3yC.mq/UjrSPHahtA2/NreuoV6hO",
+    "created_at": "2025-11-22T06:21:07.872813",
+    "citizenship_number": "6565",
+    "office_level": null,
+    "office_name": null
+  }
+}
